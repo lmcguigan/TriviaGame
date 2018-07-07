@@ -6,14 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link href="https://fonts.googleapis.com/css?family=Coiny|Fascinate+Inline|Fredoka+One|Modak" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Monoton|Syncopate" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>Trivia Game</title>
+    <title>Minimalism Trivia</title>
 </head>
 
 <body>
+    <div class="row container-fluid" id="header">
+        <div class="col-xs-12 col-sm-8" id="titleText">
+            <h1>Minimalism Trivia</h1>
+        </div>
+        <div class="col-xs-12 col-sm-4" id="timerDiv">
+            <p class = "greytext" id ="timerLine">
+                <span id="timerShow"></span>seconds remaining</p>
+        </div>
+    </div>
+    <div class="container-fluid" id="innerbox">
+        <div id="qbox">
+            <p id="questionholder" class = "greytext"></p>
+        </div>
+        <div class="container-fluid" id="answerholder">
+            <div class="row" id="topRow">
+            </div>
+            <div class="row" id="bottomRow">
+            </div>
+        </div>
+    </div>
+    <div id="gameInstructions" class="modal">
+        <div class="modal-content">
+            <span class="close introClose">&times;</span>
+            <p class="introtext"> In this game, you will be presented with a series of questions on Western art after 1960. You will have 7 seconds
+                to answer each question. <br><br>If you guess correctly, you will win a point. If you guess incorrectly, or run out
+                of time, you will receive a penalty. Your final score is determined by subtracting your penalties from your points. <br><br>The game will begin when you close this notification.
+            </p>
+        </div>
+    </div>
+    <div id="guessedWrong" class="modal notification">
+        <div class="modal-content">
+            <p class="modaltext"> Your answer was incorrect.</p><p> The correct answer is:
+                <span id="showRightAnswer"></span>
+            </p>
+            <p class = "greytext">Questions Remaining:
+                <span class="questionsLeft"></span>
+            </p>
+            <p class = "greytext">Points:
+                <span class="pointsSpan"></span>
+            </p>
+            <p class = "greytext">Penalties:
+                <span class="penaltiesSpan"></span>
+            </p>
+            <p class="messageNote">This message will automatically close in
+                <span class="modalTimeShow">4</span> seconds.</p>
+        </div>
+    </div>
+    <div id="guessedRight" class="modal notification">
+        <div class="modal-content">
+            <p class="modaltext"> You guessed correctly!
+            </p>
+            <p class = "greytext">Questions Remaining:
+                <span class="questionsLeft"></span>
+            </p>
+            <p class = "greytext">Points:
+                <span class="pointsSpan"></span>
+            </p>
+            <p class = "greytext">Penalties:
+                <span class="penaltiesSpan"></span>
+            </p>
+            <p class="messageNote">This message will automatically close in
+                <span class="modalTimeShow">4</span> seconds.</p>
+        </div>
+    </div>
+    <div id="youTimedOut" class="modal notification">
+        <div class="modal-content">
+            <p class="modaltext"> You ran out of time! </p><p> The correct answer is:
+                <span id="showCorrect"></span>
+            </p>
+            <p class = "greytext">Questions Remaining:
+                <span class="questionsLeft"></span>
+            </p>
+            <p class = "greytext">Points:
+                <span class="pointsSpan"></span>
+            </p>
+            <p class = "greytext">Penalties:
+                <span class="penaltiesSpan"></span>
+            </p>
+            <p class="messageNote">This message will automatically close in
+                <span class="modalTimeShow">4</span> seconds.</p>
+        </div>
+    </div>
+    <div id="gameOver" class="modal endgame">
+        <div class="modal-content">
+            <p class="modaltext"> You've exhausted all the questions.</p>
+            <p> Here's your final score!</p>
+            <p class = "greytext">Points:
+                <span class="pointsSpan"></span>
+            </p>
+            <p class = "greytext">Penalties:
+                <span class="penaltiesSpan"></span>
+            </p>
+            <p class = "greytext">Final Score:
+                <span class="finalScoreShow"></span>
+            </p>
+            <button id="restartButton">Restart Game</button>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
